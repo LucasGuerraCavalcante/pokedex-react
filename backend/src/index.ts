@@ -1,17 +1,13 @@
 import express from 'express'
 import cors from 'cors'
 
-// import routes from './routes'
+import routes from './routes'
 
 const app = express()
 
 app.use(cors())
 
-// app.use(routes)
-
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
+app.use(routes)
 
 const port = 3333
 
