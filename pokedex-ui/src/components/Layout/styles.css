@@ -1,0 +1,26 @@
+
+/* 
+
+BR -> Border
+CN -> Content
+. -> Empty
+
+*/
+
+.grid-area {
+    display: grid;
+
+    grid-template-columns: 5% auto auto auto 5%;
+    grid-template-rows: 5% auto 0.5%;
+    grid-gap: 1rem;
+
+    grid-template-areas:
+    'BR BR BR BR BR'
+    '. CN CN CN .'
+    '. . . . .';
+
+    height: 100vh;
+
+    background-color: #E1E1E1;
+}
+
