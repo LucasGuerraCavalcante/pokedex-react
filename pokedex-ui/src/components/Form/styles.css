@@ -1,0 +1,11 @@
+
+.form {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    margin: 0 0 2rem;
+
+    background-color: transparent;
+}
