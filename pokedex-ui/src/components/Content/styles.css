@@ -1,6 +1,11 @@
 
-.content {
+.container {
     grid-area: CN;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 2rem 0;
 
     background-color: #FFF;
 }
