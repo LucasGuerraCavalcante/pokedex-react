@@ -10,7 +10,6 @@ const Layout: React.FC = () => {
     <div className="grid-area">
       <Border />
       <Content />
-      {/* <Border /> */}
     </div>
   );
 };
