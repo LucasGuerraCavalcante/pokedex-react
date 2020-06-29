@@ -16,7 +16,7 @@ const Header: React.FC = () => {
         <div className="toggle">
             <FaRegLightbulb  className="icon" />
             <input id="switch" type="checkbox" name="theme" />
-            <label htmlFor="switch">Toggle</label>
+            <label id="toggleLabel" htmlFor="switch">Toggle</label>
         </div>     
     </div>
   );
