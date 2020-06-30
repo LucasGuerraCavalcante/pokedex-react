@@ -5,6 +5,6 @@ import pokeAPIController from './controllers/pokeAPIController'
 const routes = Router()
 
 routes.get('/generation/:id/species', pokeAPIController.species )
-routes.get('/pokemon/:id', pokeAPIController.details )
+routes.get('/pokemon/:name', pokeAPIController.details )
 
 export default routes
