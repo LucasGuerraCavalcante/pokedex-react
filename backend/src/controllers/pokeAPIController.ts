@@ -11,22 +11,27 @@ export default {
         fetch(url, { method: 'get' })
             .then(res => res.json())
             .then(data => {
-                const generation = {
-                    id: data.id,
-                    name: data.name,
-                    mainRegion: data.main_region.name,
-                    pokemons: data.pokemon_species
-                } 
 
-                return response.json(generation)
+                const generation = {
+                    pokemons: data.pokemon_species
+                }
+
+                var names = []
+
+                for (var i = 0; i < generation.pokemons.length; i++) {
+                    console.log(i)
+                    names.push(generation.pokemons[i].name);
+                }
+
+                return response.json(names)
             })
             .catch(err => console.error(err))
     },
 
     async details(request: Request, response: Response) {
-        const { id } = request.params;
+        const { name } = request.params;
 
-        const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+        const url = `https://pokeapi.co/api/v2/pokemon/${name}`
 
         fetch(url, { method: 'get' })
             .then(res => res.json())
