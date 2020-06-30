@@ -19,7 +19,6 @@ export default {
                 var names = []
 
                 for (var i = 0; i < generation.pokemons.length; i++) {
-                    console.log(i)
                     names.push(generation.pokemons[i].name);
                 }
 
