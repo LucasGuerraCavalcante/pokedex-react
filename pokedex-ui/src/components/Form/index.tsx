@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent } from 'react'
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react'
 import axios from 'axios'
 
 import Pokemon from '../Pokemon'
@@ -17,9 +17,7 @@ const Form: React.FC = () => {
   useEffect(() => {
       axios.get<string[]>(`http://localhost:3333/generation/${selectedGeneration}/species`)
           .then(response => {
-              console.log(response)
               const pokemonNames = response.data.map(pokemon => pokemon)
-              console.log(pokemonNames)
               setPokemons(pokemonNames)
           })
   }, [selectedGeneration])
@@ -29,13 +27,16 @@ const Form: React.FC = () => {
     setSelectedGeneration(generation)
   }
 
-  function handleSelectPokemon(event: ChangeEvent<HTMLSelectElement>) {
+  function handleSelectPokemon(event: ChangeEvent<HTMLInputElement>) {
     const pokemon = event.target.value
+    console.log(pokemon)
     setSelectedPokemon(pokemon)
   }
 
-  function sendPokemon() {
-    const confirmedPokemon = formData
+  function sendPokemon(event: FormEvent) {
+    event.preventDefault()
+    const confirmedPokemon = selectedPokemon
+    console.log(confirmedPokemon)
     setFormData(confirmedPokemon)
   }
 
@@ -56,9 +57,8 @@ const Form: React.FC = () => {
           </select>
 
           <input type="text" list="pokemons" id="pokemonInput"
-                placeholder="Pokemon's Name" 
-                value={ selectedPokemon }
-                onChange={() => handleSelectPokemon }></input>
+                placeholder="Pokemon's Name"
+                onInput={ handleSelectPokemon }></input>
           <datalist id="pokemons">
 
             { pokemons.map(pokemon => (
