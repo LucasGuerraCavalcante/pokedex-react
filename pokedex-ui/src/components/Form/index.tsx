@@ -5,10 +5,6 @@ import Pokemon from '../Pokemon'
 
 import './styles.css'
 
-interface Props  {
-  name?: string
-}
-
 const Form: React.FC = () => {
 
   const [pokemons, setPokemons] = useState<string[]>([])
@@ -24,6 +20,7 @@ const Form: React.FC = () => {
               const pokemonNames = response.data.map(pokemon => pokemon)
               setPokemons(pokemonNames)
           })
+          .catch(err => console.error(err))
   }, [selectedGeneration])
 
   function handleSelectedGeneration(event: ChangeEvent<HTMLSelectElement>) {
