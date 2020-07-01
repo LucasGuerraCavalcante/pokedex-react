@@ -41,15 +41,15 @@ export default {
                     name: data.name,
                     height: data.height,
                     weight: data.weight,
+
+                    male: data.sprites.front_default,
+                    female: data.sprites.front_female,
+                    shinyMale: data.sprites.front_shiny,
+                    shinyFemale: data.sprites.front_shiny_female,
+    
+                    abilities: data.abilities,
                     types: data.types,
                     stats: data.stats,
-                    sprites: {
-                        male: data.sprites.front_default,
-                        female: data.sprites.front_female,
-                        shinyMale: data.sprites.front_shiny,
-                        shinyFemale: data.sprites.front_shiny_female,
-                    },
-                    abilities: data.abilities
                 }
 
                 return response.json(pokemon)
