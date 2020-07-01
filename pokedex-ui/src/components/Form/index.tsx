@@ -5,6 +5,10 @@ import Pokemon from '../Pokemon'
 
 import './styles.css'
 
+interface Props  {
+  name?: string
+}
+
 const Form: React.FC = () => {
 
   const [pokemons, setPokemons] = useState<string[]>([])
@@ -12,7 +16,7 @@ const Form: React.FC = () => {
   const [selectedGeneration, setSelectedGeneration] = useState<string>('1')
   const [selectedPokemon, setSelectedPokemon] = useState<string>('')
 
-  const [formData, setFormData] = useState({})
+  const [formData, setFormData] = useState<string>('')
 
   useEffect(() => {
       axios.get<string[]>(`http://localhost:3333/generation/${selectedGeneration}/species`)
@@ -29,15 +33,14 @@ const Form: React.FC = () => {
 
   function handleSelectPokemon(event: ChangeEvent<HTMLInputElement>) {
     const pokemon = event.target.value
-    console.log(pokemon)
     setSelectedPokemon(pokemon)
   }
 
   function sendPokemon(event: FormEvent) {
     event.preventDefault()
-    const confirmedPokemon = selectedPokemon
-    console.log(confirmedPokemon)
-    setFormData(confirmedPokemon)
+
+    const selectedPokemonName = selectedPokemon
+    setFormData(selectedPokemonName)
   }
 
   return (
@@ -70,7 +73,7 @@ const Form: React.FC = () => {
           <button type="submit">Search</button>   
       </form>
 
-      <Pokemon />
+      <Pokemon selectedPokemonName={ formData } />
     </>
   );
 };
