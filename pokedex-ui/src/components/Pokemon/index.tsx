@@ -26,6 +26,8 @@ const Pokemon: React.FC<pokemon> = ({ selectedPokemonName }) => {
         <h3 >{ selectedPokemonData.name }</h3>
         <h3 >{ selectedPokemonData.height }</h3>
         <h3 >{ selectedPokemonData.weight }</h3>
+        <h3 >{ selectedPokemonData.id }</h3>
+        <img src={ selectedPokemonData.male } ></img>
         <span>A</span>     
     </div>
   )
