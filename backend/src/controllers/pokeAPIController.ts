@@ -79,10 +79,8 @@ export default {
                     height: data.height,
                     weight: data.weight,
 
-                    male: data.sprites.front_default,
-                    female: data.sprites.front_female,
-                    shinyMale: data.sprites.front_shiny,
-                    shinyFemale: data.sprites.front_shiny_female,
+                    img: data.sprites.front_default,
+                    shinyImg: data.sprites.front_shiny,
     
                     abilities: abilitiesNames,
                     types: typesNames,
