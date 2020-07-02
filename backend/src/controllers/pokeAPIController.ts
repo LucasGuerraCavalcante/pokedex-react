@@ -22,6 +22,8 @@ export default {
                     names.push(generation.pokemons[i].name);
                 }
 
+                names = names.sort()
+
                 return response.json(names)
             })
             .catch(err => console.error(err))
