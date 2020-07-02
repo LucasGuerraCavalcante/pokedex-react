@@ -9,7 +9,13 @@ interface pokemon {
 
 const Pokemon: React.FC<pokemon> = ({ selectedPokemonName }) => {
 
+  const [pokemonName, setPokemonName] = useState<string>(selectedPokemonName)
+
   const [selectedPokemonData, setSelectedPokemonData] = useState<any>({})
+
+  useEffect(() => {
+    setPokemonName(selectedPokemonName)
+  })
 
   useEffect(() => {
     axios.get<any>(`http://localhost:3333/pokemon/${selectedPokemonName}`)
@@ -18,7 +24,7 @@ const Pokemon: React.FC<pokemon> = ({ selectedPokemonName }) => {
             setSelectedPokemonData(pokemonInfo)
         })
         .catch(err => console.error(err))
-  })
+  }, [pokemonName])
 
   return (
     <div className="pokemon">
