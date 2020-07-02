@@ -10,13 +10,14 @@ const Form: React.FC = () => {
   const [pokemons, setPokemons] = useState<string[]>([])
 
   const [selectedGeneration, setSelectedGeneration] = useState<string>('1')
-  const [selectedPokemon, setSelectedPokemon] = useState<string>('')
+  const [selectedPokemon, setSelectedPokemon] = useState<string>('bulbasaur')
 
-  const [formData, setFormData] = useState<string>('')
+  const [formData, setFormData] = useState<string>('bulbasaur')
 
   useEffect(() => {
       axios.get<string[]>(`http://localhost:3333/generation/${selectedGeneration}/species`)
           .then(response => {
+              console.log(response)
               const pokemonNames = response.data.map(pokemon => pokemon)
               setPokemons(pokemonNames)
           })
@@ -28,10 +29,15 @@ const Form: React.FC = () => {
     setSelectedGeneration(generation)
   }
 
-  function handleSelectPokemon(event: ChangeEvent<HTMLInputElement>) {
+  function handleSelectPokemon(event: ChangeEvent<HTMLSelectElement>) {
     const pokemon = event.target.value
     setSelectedPokemon(pokemon)
   }
+
+  // function handleSelectPokemon(event: ChangeEvent<HTMLInputElement>) {
+  //   const pokemon = event.target.value
+  //   setSelectedPokemon(pokemon)
+  // }
 
   function sendPokemon(event: FormEvent) {
     event.preventDefault()
@@ -56,8 +62,19 @@ const Form: React.FC = () => {
             <option key={7} value="7">Generation 7</option>
           </select>
 
-          <input type="text" list="pokemons" id="pokemonInput"
+          <select id="pokemonSelect" name="pokemon" 
+            value={ selectedPokemon }
+            onChange={ handleSelectPokemon } >
+
+            <option key={0} value="0">Pokemon's Name</option>
+            { pokemons.map(pokemon => (
+                <option key={pokemon} value={pokemon}>{pokemon}</option>
+            ))}
+          </select>
+
+          {/* <input type="text" list="pokemons" id="pokemonInput"
                 placeholder="Pokemon's Name"
+                value={ selectedPokemon }
                 onInput={ handleSelectPokemon }></input>
           <datalist id="pokemons">
 
@@ -65,7 +82,7 @@ const Form: React.FC = () => {
                 <option key={pokemon} value={pokemon}>{pokemon}</option>
             ))}
 
-          </datalist>
+          </datalist> */}
 
           <button type="submit">Search</button>   
       </form>
