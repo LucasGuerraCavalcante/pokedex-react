@@ -34,11 +34,6 @@ const Form: React.FC = () => {
     setSelectedPokemon(pokemon)
   }
 
-  // function handleSelectPokemon(event: ChangeEvent<HTMLInputElement>) {
-  //   const pokemon = event.target.value
-  //   setSelectedPokemon(pokemon)
-  // }
-
   function sendPokemon(event: FormEvent) {
     event.preventDefault()
 
@@ -71,18 +66,6 @@ const Form: React.FC = () => {
                 <option key={pokemon} value={pokemon}>{pokemon}</option>
             ))}
           </select>
-
-          {/* <input type="text" list="pokemons" id="pokemonInput"
-                placeholder="Pokemon's Name"
-                value={ selectedPokemon }
-                onInput={ handleSelectPokemon }></input>
-          <datalist id="pokemons">
-
-            { pokemons.map(pokemon => (
-                <option key={pokemon} value={pokemon}>{pokemon}</option>
-            ))}
-
-          </datalist> */}
 
           <button type="submit">Search</button>   
       </form>
