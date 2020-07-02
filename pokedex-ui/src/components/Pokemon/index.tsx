@@ -12,10 +12,8 @@ interface pokemonData {
   name: string,
   height: number,
   weight: number,
-  male: string,
-  female?: string,
-  shinyMale: string,
-  shinyFemale?: string,
+  img: string,
+  shinyImg: string,
   abilities: string[],
   types: string[]
 }
@@ -29,10 +27,8 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
     name: "bulbasaur",
     height: 7,
     weight: 69,
-    male: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    female: undefined,
-    shinyMale: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png",
-    shinyFemale: undefined,
+    img: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    shinyImg: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png",
     abilities: [
       "chlorophyll",
       "overgrow"
@@ -42,8 +38,6 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
       "poison"
       ]
   })
-
-  const [formatedPokemonName, setFormatedPokemonName] = useState<string>('')
 
   useEffect(() => {
     setPokemonName(selectedPokemonName)
@@ -60,12 +54,12 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
 
   return (
     <div className="pokemon">
-        <span >A</span>
-        <h3>{ selectedPokemonData.name }</h3>
+        <h3>{ selectedPokemonData.name.toUpperCase().split('-').join(' ') }</h3>
         <h3>{ selectedPokemonData.height }</h3>
         <h3>{ selectedPokemonData.weight }</h3>
         <h3>{ selectedPokemonData.id }</h3>
-        <img src={ selectedPokemonData.male } ></img>
+        <img src={ selectedPokemonData.img } ></img>
+        <img src={ selectedPokemonData.shinyImg } ></img>
         <ol>
           { selectedPokemonData.abilities.map((ability: string) => 
             <li key={ability}>{ ability }</li>)
@@ -75,8 +69,7 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
           { selectedPokemonData.types.map((type: string) => 
             <li key={type}>{ type }</li>)
           }
-        </ol>
-        <span>A</span>     
+        </ol> 
     </div>
   )
 }
