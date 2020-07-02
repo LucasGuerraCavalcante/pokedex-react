@@ -10,7 +10,7 @@
     background-color: transparent;
 }
 
-input, select, button {
+select, button {
 
     height: 2rem;
     border: solid 1px #E1E1E1;
@@ -23,7 +23,7 @@ input, select, button {
 
 }
 
-input {
+#pokemonSelect {
 
     width: 50%;
 
