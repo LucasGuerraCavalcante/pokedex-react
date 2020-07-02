@@ -8,11 +8,7 @@ import { FaRegLightbulb } from 'react-icons/fa'
 const Header: React.FC = () => {
   return (
     <div className="header">
-        <div className="idk">
-            {/* <span className="icon"><GiPerspectiveDiceSixFacesRandom /></span>
-            <button id="random">Random</button> */}
-        </div> 
-        <h1>React Pokedex</h1>
+        <h1 className="tittle">React Pokedex</h1>
         <div className="toggle">
             <FaRegLightbulb  className="icon" />
             <input id="switch" type="checkbox" name="theme" />
