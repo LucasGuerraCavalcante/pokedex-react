@@ -12,6 +12,10 @@ export default {
             .then(res => res.json())
             .then(data => {
 
+                // Formating Data
+
+                // ---- Pokemons Names List ----
+
                 const generation = {
                     pokemons: data.pokemon_species
                 }
@@ -38,6 +42,37 @@ export default {
             .then(res => res.json())
             .then(data => {
 
+                // Formating Data
+
+                // ------ Abilities ------
+
+                const mapAbilities = {
+                    abilitiesArray: data.abilities
+                }
+
+                var abilitiesNames = []
+
+                for (var i = 0; i < mapAbilities.abilitiesArray.length; i++) {
+                    abilitiesNames.push(mapAbilities.abilitiesArray[i].ability.name)
+                }
+
+                abilitiesNames = abilitiesNames.sort()
+
+                // ------ Types ------
+
+                const mapTypes = {
+                    typesArray: data.types
+                }
+
+                var typesNames = []
+
+                for (var i = 0; i < mapTypes.typesArray.length; i++) {
+                    typesNames.push(mapTypes.typesArray[i].type.name)
+                }
+
+                typesNames = typesNames.sort()
+
+
                 const pokemon = {
                     id: data.id,
                     name: data.name,
@@ -49,9 +84,8 @@ export default {
                     shinyMale: data.sprites.front_shiny,
                     shinyFemale: data.sprites.front_shiny_female,
     
-                    abilities: data.abilities,
-                    types: data.types,
-                    stats: data.stats,
+                    abilities: abilitiesNames,
+                    types: typesNames,
                 }
 
                 return response.json(pokemon)
