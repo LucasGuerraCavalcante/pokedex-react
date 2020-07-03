@@ -41,10 +41,10 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
 
   useEffect(() => {
     setPokemonName(selectedPokemonName)
-  })
+  }, [selectedPokemonName])
 
   useEffect(() => {
-    axios.get<any>(`http://localhost:3333/pokemon/${selectedPokemonName}`)
+    axios.get<any>(`http://localhost:3333/pokemon/${pokemonName}`)
         .then(response => {
             const pokemonInfo = response.data
             setSelectedPokemonData(pokemonInfo)
@@ -58,8 +58,8 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
         <h3>{ selectedPokemonData.height }</h3>
         <h3>{ selectedPokemonData.weight }</h3>
         <h3>{ selectedPokemonData.id }</h3>
-        <img src={ selectedPokemonData.img } ></img>
-        <img src={ selectedPokemonData.shinyImg } ></img>
+        <img alt="pokemonIcon" src={ selectedPokemonData.img } ></img>
+        <img alt="pokemonIconShiny" src={ selectedPokemonData.shinyImg } ></img>
         <ol>
           { selectedPokemonData.abilities.map((ability: string) => 
             <li key={ability}>{ ability }</li>)
