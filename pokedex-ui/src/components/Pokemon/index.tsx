@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import { IoMdArrowRoundBack } from 'react-icons/io'
+import { IoMdArrowRoundForward } from 'react-icons/io'
+import { GiStarsStack } from 'react-icons/gi'
+
 import './styles.css'
 
 interface pokemonName {
@@ -55,21 +59,37 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
   return (
     <div className="pokemon">
         <h3>{ selectedPokemonData.name.toUpperCase().split('-').join(' ') }</h3>
-        <h3>{ selectedPokemonData.height }</h3>
-        <h3>{ selectedPokemonData.weight }</h3>
-        <h3>{ selectedPokemonData.id }</h3>
-        <img alt="pokemonIcon" src={ selectedPokemonData.img } ></img>
-        <img alt="pokemonIconShiny" src={ selectedPokemonData.shinyImg } ></img>
-        <ol>
-          { selectedPokemonData.abilities.map((ability: string) => 
-            <li key={ability}>{ ability }</li>)
-          }
-        </ol>
-        <ol>
+        <div className="icon-container">
+          <img alt="pokemonIcon" src={ selectedPokemonData.img } ></img>
+          {/* <img alt="pokemonIconShiny" src={ selectedPokemonData.shinyImg } ></img> */}
+          <p>{ selectedPokemonData.id }</p>
+        </div>
+        <div className="joystick-container">
+          <IoMdArrowRoundBack  className="icon arrow" />
+          <GiStarsStack className="icon stars" />
+          <IoMdArrowRoundForward  className="icon arrow" />
+        </div>
+        <div className="hw-container">
+          <p className="hwInfo">Height: { selectedPokemonData.height }</p>
+          <p className="hwInfo">Weight: { selectedPokemonData.weight }</p> 
+        </div>
+
+        <table>
+          <tr>
           { selectedPokemonData.types.map((type: string) => 
-            <li key={type}>{ type }</li>)
-          }
-        </ol> 
+            <th className={type}>{ type }</th>)}
+          </tr>
+        </table>
+
+        <h4>Abilities</h4>
+
+        <table>
+          <tr>
+          { selectedPokemonData.abilities.map((ability: string) => 
+            <th>{ ability.split('-').join(' ') }</th>)}
+          </tr>
+        </table>
+
     </div>
   )
 }
