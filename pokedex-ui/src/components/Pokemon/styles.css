@@ -9,3 +9,171 @@
 
     background-color: transparent;
 }
+
+/* Title */
+
+h3 {
+    margin: 0.5rem;
+}
+
+/* Pokemon Icon Container */
+
+.icon-container {
+    border: solid 2px #E1E1E1;
+    background-color: #FFF;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+
+    margin: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+/* Joystick Icon Container */
+
+.joystick-container {
+
+    margin: 0 0 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.arrow, .stars {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.5s;
+}
+
+.arrow:hover, .stars:hover {
+    color: #FE0000
+}
+
+/* HW Info Container */
+
+.hw-container {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.hwInfo {
+    margin: 1rem
+}
+
+/* Tables (Types and Abilities)  */
+
+table {
+    margin: 0.5rem 0 1.3rem
+}
+
+th {
+    border: 1px solid #E1E1E1;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: normal;
+}
+  
+th, td {
+    padding: 10px;
+}
+
+/* Types color classes  */
+
+.bug {
+    background-color: #C6D16E;
+}
+
+.dark {
+    background-color: #A29288;
+}
+
+.dragon {
+    background-color: #A27DFA;
+}
+
+.electric {
+    background-color: #FAE078;
+}
+
+.fairy {
+    background-color: #F4BDC9;
+}
+
+.fighting {
+    background-color: #D67873;
+}
+
+.fire {
+    background-color: #F5AC78;
+}
+
+.flying {
+    background-color: #C6B7F5;
+}
+
+.flying {
+    background-color: #C6B7F5;
+}
+
+.ghost {
+    background-color: #A292BC;
+}
+
+.grass {
+    background-color: #A7DB8D;
+}
+
+.ground {
+    background-color: #EBD69D;
+}
+
+.ice {
+    background-color: #BCE6E6;
+}
+
+.normal {
+    background-color: #C6C6A7;
+}
+
+.poison {
+    background-color: #C183C1;
+}
+
+.psychic {
+    background-color: #FA92B2;
+}
+
+.rock {
+    background-color: #D1C17D;
+}
+
+.steel {
+    background-color: #D1D1E0;
+}
+
+.water {
+    background-color: #9DB7F5;
+}
+
+.unknown {
+    background-color: #9DC1B7;
+}
+
+
+
+
+
+
+
+
+
