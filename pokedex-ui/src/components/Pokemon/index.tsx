@@ -25,6 +25,9 @@ interface pokemonData {
 const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
 
   const [pokemonName, setPokemonName] = useState<string>(selectedPokemonName)
+  const [pokemonId, setPokemonId] = useState<number>(1)
+  const [iconStatus, setIconStatus] = useState<boolean>(true)
+
 
   const [selectedPokemonData, setSelectedPokemonData] = useState<pokemonData>({
     id: 1,
@@ -52,23 +55,83 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
         .then(response => {
             const pokemonInfo = response.data
             setSelectedPokemonData(pokemonInfo)
+            setPokemonId(pokemonInfo.id)
         })
         .catch(err => console.error(err))
   }, [pokemonName])
 
+  function changeIcon(iconStatus: boolean) {
+    if (iconStatus === true) {
+      setIconStatus(false)
+    } else {
+      setIconStatus(true)
+    }
+  }
+
+  function nextPokemon(id: number) {
+      axios.get<any>(`http://localhost:3333/pokemon/${id + 1}`)
+      .then(response => {
+          const pokemonInfo = response.data
+          setSelectedPokemonData(pokemonInfo)
+          setPokemonId(pokemonInfo.id)
+      })
+      .catch(err => 
+        axios.get<any>(`http://localhost:3333/pokemon/${id}`)
+        .then(response => {
+            const pokemonInfo = response.data
+            setSelectedPokemonData(pokemonInfo)
+            setPokemonId(pokemonInfo.id)
+      })
+    )
+  }
+
+  function previousPokemon(id: number) {
+    if (id === 1) {
+      alert('First pokemon of the Generation')
+    } else {
+      axios.get<any>(`http://localhost:3333/pokemon/${id - 1}`)
+      .then(response => {
+          const pokemonInfo = response.data
+          setSelectedPokemonData(pokemonInfo)
+          setPokemonId(pokemonInfo.id)
+      })
+      .catch(err => 
+        axios.get<any>(`http://localhost:3333/pokemon/${id}`)
+        .then(response => {
+            const pokemonInfo = response.data
+            setSelectedPokemonData(pokemonInfo)
+            setPokemonId(pokemonInfo.id)
+      }))
+    }
+  }
+
   return (
     <div className="pokemon">
         <h3>{ selectedPokemonData.name.toUpperCase().split('-').join(' ') }</h3>
+
         <div className="icon-container">
-          <img alt="pokemonIcon" src={ selectedPokemonData.img } ></img>
-          {/* <img alt="pokemonIconShiny" src={ selectedPokemonData.shinyImg } ></img> */}
+          {
+            iconStatus ? (
+              <img alt="pokemonIcon" src={ selectedPokemonData.img } ></img> 
+            ) : (
+              <img alt="pokemonIconShiny" src={ selectedPokemonData.shinyImg } ></img> 
+            )
+          }
           <p>{ selectedPokemonData.id }</p>
         </div>
+
         <div className="joystick-container">
-          <IoMdArrowRoundBack  className="icon arrow" />
-          <GiStarsStack className="icon stars" />
-          <IoMdArrowRoundForward  className="icon arrow" />
+          <div onClick={() => previousPokemon(pokemonId)}>
+            <IoMdArrowRoundBack  className="icon arrow" />
+          </div>
+          <div onClick={() => changeIcon(iconStatus)}>
+            <GiStarsStack className="icon stars" />
+          </div>
+          <div onClick={() => nextPokemon(pokemonId)}>
+            <IoMdArrowRoundForward  className="icon arrow" />
+          </div>
         </div>
+
         <div className="hw-container">
           <p className="hwInfo">Height: { selectedPokemonData.height }</p>
           <p className="hwInfo">Weight: { selectedPokemonData.weight }</p> 
@@ -77,7 +140,7 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
         <table>
           <tr>
           { selectedPokemonData.types.map((type: string) => 
-            <th className={type}>{ type }</th>)}
+            <th key={type} className={type}>{ type }</th>)}
           </tr>
         </table>
 
@@ -86,7 +149,7 @@ const Pokemon: React.FC<pokemonName> = ({ selectedPokemonName }) => {
         <table>
           <tr>
           { selectedPokemonData.abilities.map((ability: string) => 
-            <th>{ ability.split('-').join(' ') }</th>)}
+            <th key={ability}>{ ability.split('-').join(' ') }</th>)}
           </tr>
         </table>
 
