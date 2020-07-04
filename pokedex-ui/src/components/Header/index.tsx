@@ -5,10 +5,6 @@ import './styles.css';
 
 const Header: React.FC = () => {
 
-
-
-
-
   return (
     <div className="header">
         <h1 className="tittle">React Pokedex</h1>
