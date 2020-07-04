@@ -2,5 +2,5 @@
 .border {
     grid-area: BR;
 
-    background-color: #FB0000;
+    background-color: var(--border);
 }
