@@ -10,9 +10,12 @@
     background-color: transparent;
 }
 
+h1 {
+    color: var(--text)
+}
 
 .icon {
-   color: #818181;
+   color: var(--icon);
    font-size: 1rem;
    margin: 0.7rem 0.5rem 0;
 }
@@ -43,7 +46,7 @@ input[type=checkbox]{
     text-indent: -9999px;
     width: 52px;
     height: 17px;
-    background: #E1E1E1;
+    background: var(--detail);
     float: right;
     border-radius: 100px;
     position: relative;
@@ -63,8 +66,7 @@ input[type=checkbox]{
 }
 
 input:checked + #toggleLabel {
-    background-color: #FB0000;
-    /* background-color: var(--color-headings); */
+    background-color: var(--effect);
 }
 
 input:checked + #toggleLabel::after {
