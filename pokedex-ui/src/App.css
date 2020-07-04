@@ -3,14 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    --layout: #E1E1E1;
-    --content: #FFF;
-    --border: #FB0000;
-    --icon: #818181;
-    --text: #000;
-    --effect: #FB0000;
-    --detail: #E1E1E1;
 }
 
 html, body, #root {
