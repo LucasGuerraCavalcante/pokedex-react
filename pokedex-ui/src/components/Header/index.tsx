@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FaRegLightbulb } from 'react-icons/fa'
 
 import './styles.css';
 
 const Header: React.FC = () => {
 
-  
+
 
 
 
