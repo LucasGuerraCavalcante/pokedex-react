@@ -10,6 +10,20 @@
     background-color: transparent;
 }
 
+/* Light / Dark mode colors variables */
+
+html {
+    --layout: #E1E1E1;
+    --content: #FFF;
+    --border: #FB0000;
+    --icon: #818181;
+    --text: #000;
+    --effect: #FB0000;
+    --detail: #E1E1E1;
+}
+
+/* General Styles */
+
 h1 {
     color: var(--text)
 }
@@ -33,7 +47,7 @@ h1 {
     margin-right: 2rem; 
 }
 
-/* Toggle */
+/* Toggle Style */
 
 input[type=checkbox]{
     height: 0;
@@ -77,3 +91,4 @@ input:checked + #toggleLabel::after {
 #toggleLabel:active:after {
     width: 45px;
 }
+

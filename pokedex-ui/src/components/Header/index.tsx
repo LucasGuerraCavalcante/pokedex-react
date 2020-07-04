@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaRegLightbulb } from 'react-icons/fa'
 
 import './styles.css';
 
-import { FaRegLightbulb } from 'react-icons/fa'
-// import { GiPerspectiveDiceSixFacesRandom } from 'react-icons/gi'
-
 const Header: React.FC = () => {
+
+  
+
+
+
   return (
     <div className="header">
         <h1 className="tittle">React Pokedex</h1>
