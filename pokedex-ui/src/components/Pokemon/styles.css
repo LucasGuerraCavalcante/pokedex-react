@@ -13,14 +13,15 @@
 /* Title */
 
 h3 {
+    color: var(--text);
     margin: 0.5rem;
 }
 
 /* Pokemon Icon Container */
 
 .icon-container {
-    border: solid 2px #E1E1E1;
-    background-color: #FFF;
+    border: solid 2px var(--detail);
+    background-color: transparent;
     border-radius: 50%;
     width: 200px;
     height: 200px;
@@ -31,7 +32,6 @@ h3 {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
 }
 
 /* Joystick Icon Container */
@@ -53,10 +53,14 @@ h3 {
 }
 
 .arrow:hover, .stars:hover {
-    color: #FE0000
+    color: var(--effect)
 }
 
 /* HW Info Container */
+
+p, h4 {
+    color: var(--text);
+}
 
 .hw-container {
 
@@ -77,7 +81,7 @@ table {
 }
 
 th {
-    border: 1px solid #E1E1E1;
+    border: 1px solid var(--detail);
     border-radius: 12px;
     text-align: center;
     font-weight: normal;
@@ -85,6 +89,7 @@ th {
   
 th, td {
     padding: 10px;
+    color: var(--text);
 }
 
 /* Types color classes  */
