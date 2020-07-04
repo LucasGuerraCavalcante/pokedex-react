@@ -1,4 +1,5 @@
-# Pokedex on React (Frontend) and NodeJS (API Server) -- Typescript
+# Pokedex (Pokémon Encyclopedia) 
+## in Typescript (React JS and Node JS)
 
 ![gif](http://g.recordit.co/hsXJbQZ9ks.gif)
 
