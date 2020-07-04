@@ -21,6 +21,6 @@ CN -> Content
 
     height: 100vh;
 
-    background-color: #E1E1E1;
+    background-color: var(--layout);
 }
 
